@@ -108,7 +108,7 @@ public class JobData {
                     currentValue = column.getValue().toLowerCase();
                     //If currentValue contains searchValue, add row to jobs list
                     if(currentValue.contains(searchValue)){
-                        //Only add if jobs does not contain row
+                        //If jobs does not contain row, add row
                         if(!jobs.contains(row)){
                             jobs.add(row);
                         }
@@ -118,7 +118,6 @@ public class JobData {
                 searching = false;
             }
         }
-
         return jobs;
     }
 
