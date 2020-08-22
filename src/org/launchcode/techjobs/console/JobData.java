@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by LaunchCode
@@ -91,7 +92,32 @@ public class JobData {
 
         ArrayList<HashMap<String,String>> jobs =  new ArrayList<>();
 
-        //
+        //Variables for comparison so original values aren't changed
+        String searchValue = value.toLowerCase();
+        String currentValue;
+
+        //Iterate over rows
+        for(HashMap<String,String> row: allJobs){
+
+            //Searching for value in rows
+            boolean searching = true;
+            while(searching){
+                //Iterate over columns for string comparison and case-insensitivity
+                for(Map.Entry<String,String> column: row.entrySet()){
+                    //Case-insensitivity
+                    currentValue = column.getValue().toLowerCase();
+                    //If currentValue contains searchValue, add row to jobs list
+                    if(currentValue.contains(searchValue)){
+                        //Only add if jobs does not contain row
+                        if(!jobs.contains(row)){
+                            jobs.add(row);
+                        }
+                    }
+                }
+                //End the while loop to go to next for loop iteration
+                searching = false;
+            }
+        }
 
         return jobs;
     }
