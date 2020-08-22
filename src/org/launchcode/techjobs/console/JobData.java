@@ -84,11 +84,14 @@ public class JobData {
         return jobs;
     }
 
+    //Searches a given string out of all columns
     public static ArrayList<HashMap<String,String>> findByValue(String value){
 
         loadData();
 
         ArrayList<HashMap<String,String>> jobs =  new ArrayList<>();
+
+        //
 
         return jobs;
     }
