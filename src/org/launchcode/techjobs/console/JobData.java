@@ -77,11 +77,14 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            //Variables for comparison so original values aren't changed
+            String searchValue = value.toLowerCase();
+            String currentValue = aValue.toLowerCase();
+
+            if (currentValue.contains(searchValue)) {
                 jobs.add(row);
             }
         }
-
         return jobs;
     }
 
